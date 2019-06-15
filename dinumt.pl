@@ -1123,18 +1123,24 @@ sub usage {
     printf("\n");
     printf( "%-9s %s\n", "Usage:", "dinumt.pl [options]" );
     printf("\n");
-    printf( "%-9s %-35s %s\n", "Options:", "--input_filename=[filename]",     "Input alignment file in BAM format" );
+    printf( "%-9s %-35s %s\n", "Options:", "--reference=[filename]",          "Indexed fasta for reference allele in VCF" );
+    printf( "%-9s %-35s %s\n", "",         "--input_filename=[filename]",     "Input alignment file in BAM format" );
     printf( "%-9s %-35s %s\n", "",         "--output_filename=[filename]",    "Output file (default stdout)" );
-    printf( "%-9s %-35s %s\n", "",         "--mask_filename=[filename]",      "Mask file for reference numts in BED format (optional)" );
+    printf( "%-9s %-35s %s\n", "",         "--mask_filename=[filename]",      "Mask file for reference numts in BED format (default $opts{mask_filename})" );
     printf( "%-9s %-35s %s\n", "",         "--include_mask",                  "Include aberrant reads mapped to mask regions in clustering" );
-    printf( "%-9s %-35s %s\n", "",         "--len_cluster_include=[integer]", "Maximum distance to be included in cluster (default 600)" );
-    printf( "%-9s %-35s %s\n", "",         "--len_cluster_link=[integer]",    "Maximum distance to link clusters (default 800)" );
-    printf( "%-9s %-35s %s\n", "",         "--min_reads_cluster=[integer]",   "Minimum number of reads to link a cluster (default 1)" );
-    printf( "%-9s %-35s %s\n", "",         "--min_evidence=[integer]",        "Minimum evidence to consider an insertion event (default 4)" );
-    printf( "%-9s %-35s %s\n", "",         "--min_map_qual=[integer]",        "Minimum mapping quality for read consideration (default 10)" );
-    printf( "%-9s %-35s %s\n", "",         "--max_read_cov=[integer]",        "Maximum read coverage allowed for breakpoint searching (default 200)" );
-    printf( "%-9s %-35s %s\n", "",         "--min_clipped_seq=[integer]",     "Minimum clipped sequence required to consider as putative breakpoint (default 5)" );
-    printf( "%-9s %-35s %s\n", "",         "--max_num_clipped=[integer]",     "Maximum number of clipped sequences observed before removing from evidence consideration (default 5)" );
+    printf( "%-9s %-35s %s\n", "",         "--support_filename=[filename]",   "File to write supporting reads to (default $opts{support_filename})" );
+    printf( "%-9s %-35s %s\n", "",         "--output_support",                "Write supporting reads" );
+    printf( "%-9s %-35s %s\n", "",         "--len_cluster_include=[integer]", "Maximum distance to be included in cluster (default $opts{len_cluster_include})" );
+    printf( "%-9s %-35s %s\n", "",         "--len_cluster_link=[integer]",    "Maximum distance to link clusters (default $opts{len_cluster_link})" );
+    printf( "%-9s %-35s %s\n", "",         "--filter_quality=[integer]",      "Phread quality to mark with q (default $opts{filter_quality})" );
+    printf( "%-9s %-35s %s\n", "",         "--filter_evidence=[integer]",     "Number of alt genotypes to mark with e (default $opts{filter_evidence})" );
+    printf( "%-9s %-35s %s\n", "",         "--filter_depth=[integer]",        "Number of supporting reads to mark with d (default $opts{filter_depth})" );
+    printf( "%-9s %-35s %s\n", "",         "--min_reads_cluster=[integer]",   "Minimum number of reads to link a cluster (default $opts{min_reads_cluster})" );
+    printf( "%-9s %-35s %s\n", "",         "--min_evidence=[integer]",        "Minimum evidence to consider an insertion event (default $opts{min_evidence})" );
+    printf( "%-9s %-35s %s\n", "",         "--min_map_qual=[integer]",        "Minimum mapping quality for read consideration (default $opts{min_map_qual})" );
+    printf( "%-9s %-35s %s\n", "",         "--max_read_cov=[integer]",        "Maximum read coverage allowed for breakpoint searching (default $opts{max_read_cov})" );
+    printf( "%-9s %-35s %s\n", "",         "--min_clipped_seq=[integer]",     "Minimum clipped sequence required to consider as putative breakpoint (default $opts{min_clipped_seq})" );
+    printf( "%-9s %-35s %s\n", "",         "--max_num_clipped=[integer]",     "Maximum number of clipped sequences observed before removing from evidence consideration (default $opts{max_num_clipped})" );
     printf( "%-9s %-35s %s\n", "",         "--read_groups=[read_group1],...", "Limit analysis to specified read group(s)" );
     printf( "%-9s %-35s %s\n", "",         "--mt_names=[mt_name1],...",       "Limit analysis to specified mitochondrial sequence names" );
     printf( "%-9s %-35s %s\n", "",         "--by_chr_dir=[directory]",        "If set, expects to find chr specific BAM files in indicated directory" );
@@ -1142,6 +1148,8 @@ sub usage {
     printf( "%-9s %-35s %s\n", "",         "--ucsc",                          "Use UCSC genome formatting (e.g. chrM)" );
     printf( "%-9s %-35s %s\n", "",         "--ensembl",                       "Use Ensembl genome formatting (e.g. chrMT)" );
     printf( "%-9s %-35s %s\n", "",         "--output_gl",                     "Output genotype likelihood information" );
+    printf( "%-9s %-35s %s\n", "",         "--verbose",                       "Print a lot of internal information" );
+    printf( "%-9s %-35s %s\n", "",         "--help",                          "This parameter list" );
     printf("\n");
 }
 
