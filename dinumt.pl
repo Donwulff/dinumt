@@ -461,6 +461,7 @@ sub getInput {
             $seq_num = $i;
             chomp($line1);
             my ( $qname, $flag, $rname, $pos, $mapq, $cigar, $rnext, $pnext, $tlen, $seq, $qual ) = split( /\t/, $line1 );
+            if ( $rnext eq '=' || $rnext eq '*' ) { next; }
             my $pnextend = $pnext + length($seq); #use first read length as proxy for paired read length
 
             my ($read_group) = $line1 =~ /RG:Z:(\S+)/;
@@ -468,7 +469,6 @@ sub getInput {
             if ( $opts{read_groups} && !defined($read_group) ) { next; }
             elsif ( $opts{read_groups} && !defined( $$readgroup_hash{$read_group} ) ) { next; }
 
-            if ( $rnext eq '=' || $rnext eq '*' ) { next; }
             if (defined( $opts{mt_names} ) ) {
                 if (!defined($$mt_hash{$rname}) && defined($$mt_hash{$rnext}) ) { next; }
             }
