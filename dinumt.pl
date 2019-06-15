@@ -110,8 +110,6 @@ my $optResult = GetOptions(
     "max_num_clipped=i"     => \$opts{max_num_clipped},
     "min_map_qual=i"        => \$opts{min_map_qual},
     "max_read_cov=i"        => \$opts{max_read_cov},
-    "mean_read_cov=f"       => \$opts{mean_read_cov},
-    "insert_size=s"         => \$opts{insert_size},
     "read_groups=s"         => \$opts{read_groups},
     "mt_names=s"            => \$opts{mt_names},
     "by_chr_dir=s"          => \$opts{by_chr_dir},
