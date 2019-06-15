@@ -102,7 +102,7 @@ my $optResult = GetOptions(
     "len_cluster_link=i"    => \$opts{len_cluster_link},
     "filter_quality=i"      => \$opts{filter_quality},
     "filter_evidence=i"     => \$opts{filter_evidence},
-    "filter_depth=i"        => \$opts{filter_evidence},
+    "filter_depth=i"        => \$opts{filter_depth},
     "min_reads_cluster=i"   => \$opts{min_reads_cluster},
     "min_evidence=i"        => \$opts{min_evidence},
     "min_clipped_seq=i"     => \$opts{min_clipped_seq},
